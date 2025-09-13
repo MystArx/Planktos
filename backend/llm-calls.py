@@ -46,9 +46,8 @@ def simplify_legal_text(text_to_simplify: str) -> str:
         return f"Error during text simplification ."
     
 
-
-if __name__ == '__main__':
-    # ... (no changes needed here)
+#TODO: Remove this block, it is just to check the function
+if __name__ == '__main__':    # Example usage
     sample_legal_text = """
     Notwithstanding any other provision of this Agreement, the party of the first part (hereinafter referred to as "the Disclosing Party") shall not be liable to the party of the second part (hereinafter referred to as "the Receiving Party") for any consequential, incidental, or indirect damages arising out of or in connection with the breach of this Agreement, provided that such damages were not the result of gross negligence or willful misconduct on the part of the Disclosing Party. The aforementioned limitation of liability shall be effective to the maximum extent permitted by applicable law.
     """
