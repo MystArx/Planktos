@@ -46,4 +46,4 @@ async def create_upload_file(file: UploadFile=File(...)):
             "extracted_text":simulated_extracted_text
         }
     except Exception as e:
-        raise HTTPException(status_code="500",detail=f"File processing failed: {str(e)}")
+        raise HTTPException(status_code="500",detail=f"File processing failed: {str(e)}") # type: ignore
