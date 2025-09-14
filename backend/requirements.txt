@@ -1,6 +1,0 @@
-fastapi
-uvicorn
-python-dotenv
-google-generativeai
-pymupdf
-docx2txt
