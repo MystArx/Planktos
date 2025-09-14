@@ -32,17 +32,13 @@ async def create_upload_file(file: UploadFile=File(...)):
 
     try:
         content = await file.read()
-
-        # ✅ Extract raw text
         extracted_text = extract_text(content, file.content_type)
-
-        # ✅ Simplify using Gemini
         simplified_text = simplify_legal_text(extracted_text)
 
         return {
             "filename": file.filename,
             "content_type": file.content_type,
-            "extracted_text": extracted_text[:500],  # preview
+            "extracted_text": extracted_text[:500],  # preview text
             "simplified_text": simplified_text
         }
     except Exception as e:
