@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import "./App.css";
 
@@ -36,6 +37,11 @@ function App() {
     }
   };
 
+=======
+import "./App.css";
+
+function App() {
+>>>>>>> aa166ea661b14646fd3ff2d7a94066c76e2c0679
   return (
     <div>
       {/* Navbar */}
@@ -52,6 +58,7 @@ function App() {
       <section className="hero">
         <h1>Welcome to SafeSign</h1>
         <p>Your solution for amazing experiences.</p>
+<<<<<<< HEAD
 
         {/* File Upload */}
         <input type="file" onChange={handleFileChange} />
@@ -71,6 +78,11 @@ function App() {
         </section>
       )}
 
+=======
+        <button className="cta-btn">Get Started</button>
+      </section>
+
+>>>>>>> aa166ea661b14646fd3ff2d7a94066c76e2c0679
       {/* Features */}
       <section className="features">
         <div className="feature-card">🚀 Fast</div>
@@ -86,4 +98,13 @@ function App() {
   );
 }
 
+<<<<<<< HEAD
 export default App;
+=======
+export default App;
+
+
+
+
+
+>>>>>>> aa166ea661b14646fd3ff2d7a94066c76e2c0679
