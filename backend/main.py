@@ -38,7 +38,7 @@ async def create_upload_file(file: UploadFile = File(...)):
         content = await file.read()
 
         # Step 2: Extract raw text (PDF, DOCX, TXT supported)
-        extracted_text = extract_text_from_file(content, file.filename)
+        extracted_text = extract_text(content, file.content_type)
 
         if not extracted_text.strip():
             raise HTTPException(status_code=422, detail="No text could be extracted from file")
@@ -55,4 +55,6 @@ async def create_upload_file(file: UploadFile = File(...)):
         }
 
     except Exception as e:
+        import traceback
+        print(traceback.format_exc())
         raise HTTPException(status_code=500, detail=f"File processing failed: {str(e)}")

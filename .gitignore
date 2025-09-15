@@ -1,6 +1,16 @@
 # Ignore env files and secrets
-backend/.env
+.env
 Api_key.txt
 requirements.txt
 # Ignore virtual environment
 venv/
+#Fontend Files
+vite.config.js
+package-lock.json
+package.json
+.gitignore
+.vscode
+public
+src
+README.md
+index.html
