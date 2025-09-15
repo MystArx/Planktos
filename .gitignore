@@ -1,6 +1,0 @@
-# Ignore env files and secrets
-backend/.env
-Api_key.txt
-requirements.txt
-# Ignore virtual environment
-venv/
