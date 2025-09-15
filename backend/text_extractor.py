@@ -1,19 +1,37 @@
+# text_extractor.py
 import fitz  # PyMuPDF
 import docx2txt
 import os
 import tempfile
+from PIL import Image
+import pytesseract
+import io
 
 
 def extract_text_from_pdf(file_bytes: bytes) -> str:
-    """Extract text from a PDF file (bytes)."""
-    text = []
+    """Extract text from a PDF file (bytes).
+    Falls back to OCR if no text is found on a page.
+    """
+    text_blocks = []
     try:
         with fitz.open(stream=file_bytes, filetype="pdf") as pdf:
             for page in pdf:
-                text.append(page.get_text("text"))
+                page_text = page.get_text("text")
+
+                # If page has digital text, use it
+                if page_text.strip():
+                    text_blocks.append(page_text)
+                else:
+                    # Fallback to OCR for scanned page
+                    pix = page.get_pixmap(dpi=300)
+                    img = Image.open(io.BytesIO(pix.tobytes("png")))
+                    ocr_text = pytesseract.image_to_string(img, lang="eng")
+                    text_blocks.append(ocr_text)
+
     except Exception as e:
         raise ValueError(f"Error extracting text from PDF: {e}")
-    return "\n".join(text).strip()
+
+    return "\n".join(text_blocks).strip()
 
 
 def extract_text_from_docx(file_bytes: bytes) -> str:
